@@ -70,6 +70,7 @@
     <Compile Include="AccessDB.aspx.designer.cs">
       <DependentUpon>AccessDB.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Author.cs" />
     <Compile Include="DBAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
