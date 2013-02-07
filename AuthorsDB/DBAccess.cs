@@ -105,7 +105,30 @@ namespace AuthorsDB
 
         public static int UpdateAuthor(Author author)
         {
-            return 0;
+            int result = 0;
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                using (SqlCommand comm = conn.CreateCommand())
+                {
+                    comm.CommandType = System.Data.CommandType.StoredProcedure;
+                    comm.CommandText = "UpdateAuthor";
+                    comm.Parameters.AddWithValue("@id", author.AuthorID);
+                    comm.Parameters.AddWithValue("@fname", author.FirstName);
+                    comm.Parameters.AddWithValue("@lname", author.LastName);
+                    comm.Parameters.AddWithValue("@phone", author.Phone);
+                    comm.Parameters.AddWithValue("@address", author.Phone);
+                    comm.Parameters.AddWithValue("@city", author.Phone);
+                    comm.Parameters.AddWithValue("@state", author.Phone);
+                    comm.Parameters.AddWithValue("@zip", author.Phone);
+                    comm.Parameters.AddWithValue("@contract", author.Contract);
+
+                    conn.Open();
+                    result = comm.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+
+            return result;
         }
 
         public static string InsertAuthor(Author author)
@@ -121,6 +144,10 @@ namespace AuthorsDB
                     comm.Parameters.AddWithValue("@fname", author.FirstName);
                     comm.Parameters.AddWithValue("@lname", author.LastName);
                     comm.Parameters.AddWithValue("@phone", author.Phone);
+                    comm.Parameters.AddWithValue("@address", author.Phone);
+                    comm.Parameters.AddWithValue("@city", author.Phone);
+                    comm.Parameters.AddWithValue("@state", author.Phone);
+                    comm.Parameters.AddWithValue("@zip", author.Phone);
                     comm.Parameters.AddWithValue("@contract", author.Contract);
                     
                     SqlParameter p = new SqlParameter("@returnID", SqlDbType.VarChar, 11);
