@@ -57,20 +57,20 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AccessDB.aspx" />
+    <Content Include="AuthorAdmin.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccessDB.aspx.cs">
-      <DependentUpon>AccessDB.aspx</DependentUpon>
+    <Compile Include="Author.cs" />
+    <Compile Include="AuthorAdmin.aspx.cs">
+      <DependentUpon>AuthorAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AccessDB.aspx.designer.cs">
-      <DependentUpon>AccessDB.aspx</DependentUpon>
+    <Compile Include="AuthorAdmin.aspx.designer.cs">
+      <DependentUpon>AuthorAdmin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Author.cs" />
     <Compile Include="DBAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -11,7 +11,28 @@ namespace AuthorsDB
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                var result = DBAccess.GetAuthors();
+                foreach (Author a in result)
+                { 
+                    authors.Items.Add(
+                        new ListItem(a.FirstName + " " + a.LastName,a.AuthorID));
+                }
+            }
+        }
 
+        protected void Author_Changed(object sender, EventArgs e)
+        {
+            var author = DBAccess.GetAuthor(authors.SelectedValue);
+            displayAuthor(author);
+        }
+
+        void displayAuthor(Author author)
+        {
+            tbxID.Text = author.AuthorID;
+            tbxFirstName.Text = author.FirstName;
+            tbxLastName.Text = author.LastName;
         }
     }
 }
