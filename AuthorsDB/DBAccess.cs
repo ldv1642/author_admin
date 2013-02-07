@@ -116,10 +116,10 @@ namespace AuthorsDB
                     comm.Parameters.AddWithValue("@fname", author.FirstName);
                     comm.Parameters.AddWithValue("@lname", author.LastName);
                     comm.Parameters.AddWithValue("@phone", author.Phone);
-                    comm.Parameters.AddWithValue("@address", author.Phone);
-                    comm.Parameters.AddWithValue("@city", author.Phone);
-                    comm.Parameters.AddWithValue("@state", author.Phone);
-                    comm.Parameters.AddWithValue("@zip", author.Phone);
+                    comm.Parameters.AddWithValue("@address", author.Address);
+                    comm.Parameters.AddWithValue("@city", author.City);
+                    comm.Parameters.AddWithValue("@state", author.State);
+                    comm.Parameters.AddWithValue("@zip", author.Zip);
                     comm.Parameters.AddWithValue("@contract", author.Contract);
 
                     conn.Open();
@@ -144,10 +144,10 @@ namespace AuthorsDB
                     comm.Parameters.AddWithValue("@fname", author.FirstName);
                     comm.Parameters.AddWithValue("@lname", author.LastName);
                     comm.Parameters.AddWithValue("@phone", author.Phone);
-                    comm.Parameters.AddWithValue("@address", author.Phone);
-                    comm.Parameters.AddWithValue("@city", author.Phone);
-                    comm.Parameters.AddWithValue("@state", author.Phone);
-                    comm.Parameters.AddWithValue("@zip", author.Phone);
+                    comm.Parameters.AddWithValue("@address", author.Address);
+                    comm.Parameters.AddWithValue("@city", author.City);
+                    comm.Parameters.AddWithValue("@state", author.State);
+                    comm.Parameters.AddWithValue("@zip", author.Zip);
                     comm.Parameters.AddWithValue("@contract", author.Contract);
                     
                     SqlParameter p = new SqlParameter("@returnID", SqlDbType.VarChar, 11);

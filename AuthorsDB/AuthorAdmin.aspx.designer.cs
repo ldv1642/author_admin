@@ -11,7 +11,7 @@ namespace AuthorsDB
 {
 
 
-    public partial class AccessDB
+    public partial class AuthorAdmin
     {
 
         /// <summary>

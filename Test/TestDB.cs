@@ -15,13 +15,6 @@ namespace Test
     [TestFixture]
     public class TestDB
     {
-        //access db - done
-        //get all authors
-        //get an author
-        //update an author
-        //delete an author
-        //insert an author
-
         string connString;
 
         [SetUp]
@@ -48,9 +41,11 @@ namespace Test
         }
 
         [TestCase]
-        public void InsertAuthorGetAuthorDeleteAuthor()
-        { 
-            //insert an author and use returned id to get it back
+        public void InsertAuthorGetAuthorUpdateAuthorDeleteAuthor()
+        {
+            //todo: if any of these actions fail, how would I rollback? currently atm I'm removing any changes manually.
+
+            //add a user
             string result = DBAccess.InsertAuthor(
                 new Author()
                 {
@@ -64,17 +59,18 @@ namespace Test
                     Zip = "22222",
                     Contract = true
                 });
-            //get author
+            //get it
             var author = DBAccess.GetAuthor(result);
-            //delete author
+            //change it
+            string newName = "Daniel";
+            author.FirstName = newName;
+            DBAccess.UpdateAuthor(author);
+            //retrieve and compare
+            string resultName = DBAccess.GetAuthor(result).FirstName;
+            //delete
             DBAccess.DeleteAuthor(result);
-            Assert.AreEqual(author.AuthorID,result);
-        }
-
-        [TestCase]
-        public void UpdateAuthor()
-        {
-            Assert.Fail("Implement");
+            
+            Assert.AreEqual(newName, resultName);
         }
     }
 }

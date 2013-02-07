@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AccessDB.aspx.cs" Inherits="AuthorsDB.AccessDB" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AuthorAdmin.aspx.cs" Inherits="AuthorsDB.AuthorAdmin" %>
 
 <!DOCTYPE html>
 
