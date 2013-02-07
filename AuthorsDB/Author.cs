@@ -15,6 +15,6 @@ namespace AuthorsDB
         public string City { get; set; }
         public string State { get; set; }
         public string Zip { get; set; }
-        public bool? Contract { get; set; } //extract from db using GetBoolean
+        public bool Contract { get; set; } //extract from db using GetBoolean
     }
 }

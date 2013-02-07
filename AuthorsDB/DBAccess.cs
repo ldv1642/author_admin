@@ -40,14 +40,14 @@ namespace AuthorsDB
                                 City = reader["city"] as string,
                                 State = reader["State"] as string,
                                 Zip = reader["zip"] as string,
-                                Contract = reader["contract"] as bool?
+                                Contract = reader["contract"] == null ? false : (bool)reader["contract"]
                             });
                     }
                     conn.Close();
                 }
             }
 
-            return authors;
+            return authors.OrderBy(x=>x.FirstName).ToList();
         }
 
         public static Author GetAuthor(string id)
@@ -72,7 +72,7 @@ namespace AuthorsDB
                         author.City = reader["city"] as string;
                         author.State = reader["State"] as string;
                         author.Zip = reader["zip"] as string;
-                        author.Contract = reader["contract"] as bool?;
+                        author.Contract = reader["contract"] == null ? false : (bool)reader["contract"];
                     }
                     conn.Close();
                 }
